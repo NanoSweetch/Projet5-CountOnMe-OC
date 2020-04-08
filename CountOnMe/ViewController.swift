@@ -39,6 +39,11 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    private func alertOperatorUsed() {
+        let alertVC = UIAlertController(title: "Attention:", message: "Un opérateur est déjà utilisé !", preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alertVC, animated: true, completion: nil)
+    }
     
     // View actions
     @IBAction func tappedNumberButton(_ sender: UIButton) {
@@ -57,9 +62,7 @@ class ViewController: UIViewController {
         if canAddOperator {
             textView.text.append(" + ")
         } else {
-            let alertVC = UIAlertController(title: "Zéro!", message: "Un opérateur est déjà utilisé !", preferredStyle: .alert)
-            alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            self.present(alertVC, animated: true, completion: nil)
+           alertOperatorUsed()
         }
     }
     
@@ -67,21 +70,36 @@ class ViewController: UIViewController {
         if canAddOperator {
             textView.text.append(" - ")
         } else {
-            let alertVC = UIAlertController(title: "Zéro!", message: "Un opérateur est déjà utilisé !", preferredStyle: .alert)
-            alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            self.present(alertVC, animated: true, completion: nil)
+           alertOperatorUsed()
         }
     }
 
+    @IBAction func tappedMultiplicationButton(_ sender: UIButton) {
+        if canAddOperator {
+            textView.text.append(" × ")
+        } else {
+            alertOperatorUsed()
+        }
+    }
+    
+    @IBAction func tappedDivisionButton(_ sender: UIButton) {
+        if canAddOperator {
+            textView.text.append(" ÷ ")
+        } else {
+            alertOperatorUsed()
+        }
+    }
+    
+    
     @IBAction func tappedEqualButton(_ sender: UIButton) {
         guard expressionIsCorrect else {
-            let alertVC = UIAlertController(title: "Zéro!", message: "Entrez une expression correcte !", preferredStyle: .alert)
+            let alertVC = UIAlertController(title: "Attention:", message: "Entrez une expression correcte !", preferredStyle: .alert)
             alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             return self.present(alertVC, animated: true, completion: nil)
         }
         
         guard expressionHaveEnoughElement else {
-            let alertVC = UIAlertController(title: "Zéro!", message: "Démarrez un nouveau calcul !", preferredStyle: .alert)
+            let alertVC = UIAlertController(title: "Attention:", message: "Démarrez un nouveau calcul !", preferredStyle: .alert)
             alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             return self.present(alertVC, animated: true, completion: nil)
         }
@@ -99,6 +117,8 @@ class ViewController: UIViewController {
             switch operand {
             case "+": result = left + right
             case "-": result = left - right
+            case "×": result = left * right
+            case "÷": result = left / right
             default: fatalError("Unknown operator !")
             }
             
