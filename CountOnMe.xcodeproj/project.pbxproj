@@ -16,6 +16,7 @@
 		1FA43BF3224E569A00F565CB /* SimpleCalcUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA43BF2224E569A00F565CB /* SimpleCalcUITests.swift */; };
 		F61B9F5B2449FE2E004FA0B5 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61B9F5A2449FE2E004FA0B5 /* Calculator.swift */; };
 		F6992AD82444BEED002C687B /* CalculatesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6992AD72444BEED002C687B /* CalculatesManager.swift */; };
+		F69AA22B244F2FCE003C4C9C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69AA22A244F2FCE003C4C9C /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		1FA43BF4224E569A00F565CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F61B9F5A2449FE2E004FA0B5 /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		F6992AD72444BEED002C687B /* CalculatesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatesManager.swift; sourceTree = "<group>"; };
+		F69AA22A244F2FCE003C4C9C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				F6992AD72444BEED002C687B /* CalculatesManager.swift */,
+				F69AA22A244F2FCE003C4C9C /* Constants.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F69AA22B244F2FCE003C4C9C /* Constants.swift in Sources */,
 				1FA43BD5224E569900F565CB /* CountOnMeViewController.swift in Sources */,
 				F61B9F5B2449FE2E004FA0B5 /* Calculator.swift in Sources */,
 				F6992AD82444BEED002C687B /* CalculatesManager.swift in Sources */,
