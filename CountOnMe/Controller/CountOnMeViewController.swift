@@ -38,7 +38,7 @@ class ViewController: UIViewController {
             return
         }
         
-        if calculateManager.expressionIsCorrect(elements: elements) {
+        if calculateManager.expressionHaveResult() {
             textView.text = ""
         }
         
