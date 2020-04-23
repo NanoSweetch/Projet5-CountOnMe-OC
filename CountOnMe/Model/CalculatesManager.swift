@@ -10,7 +10,7 @@ import Foundation
 
 class CalculatesManager {
     
-    var result: Double?
+    var result: Float?
     
     // Error check computed variables
     func expressionIsCorrect(elements: [String]) -> Bool {
@@ -41,11 +41,21 @@ class CalculatesManager {
         // vérifier a quel numéro correspondent les oprateur pour ensuite faire des if dans la boucles while pour vérifier si on utilise la division et ou la multiplication pour faire les calcules de ces opérateurs avant les autres.
         // pour vérifier les numéro des opérateurs utiliser: idex of (sa nouvelle écriture) pour vérifier operateursToReduce
         
+       // let nouveau = operationsToReduce.self
+        
+       // print(operationsToReduce[3])
+        
         // Iterate over operations while an operand still here
         while operationsToReduce.count > 1 {
             let left = Float(operationsToReduce[0])!
             let operand = operationsToReduce[1]
             let right = Float(operationsToReduce[2])!
+            
+            if operand == "÷" || operand == "×" {
+                if operationsToReduce.count < 2 {
+                result = left
+            }
+            }
             
             let result: Float
             switch operand {
