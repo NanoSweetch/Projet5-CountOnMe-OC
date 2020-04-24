@@ -31,31 +31,30 @@ class CalculatesManager {
         }
         return false
     }
-    
+     
     func opertorToReduce(elements: [String]) -> [String] {
-        
-        
         // Create local copy of operations
         var operationsToReduce = elements
         
-        // vérifier a quel numéro correspondent les oprateur pour ensuite faire des if dans la boucles while pour vérifier si on utilise la division et ou la multiplication pour faire les calcules de ces opérateurs avant les autres.
-        // pour vérifier les numéro des opérateurs utiliser: idex of (sa nouvelle écriture) pour vérifier operateursToReduce
-        
-       // let nouveau = operationsToReduce.self
-        
-       // print(operationsToReduce[3])
-        
         // Iterate over operations while an operand still here
         while operationsToReduce.count > 1 {
-            let left = Float(operationsToReduce[0])!
-            let operand = operationsToReduce[1]
-            let right = Float(operationsToReduce[2])!
             
-            if operand == "÷" || operand == "×" {
-                if operationsToReduce.count < 2 {
-                result = left
+            // Par defaut, on prend le premier operateur
+            var indexOperand = 1
+            
+            // Sauf s'il y a une multi
+            if let multiOperand = operationsToReduce.firstIndex(of: "×") {
+                indexOperand = multiOperand
             }
+            // Div prioritaire sur multi ex: 1/2*4
+            if let divOperand = operationsToReduce.firstIndex(of: "÷") {
+                indexOperand = divOperand
             }
+            
+            // Si 1+2*4 indexOperand = 3
+            let left = Float(operationsToReduce[indexOperand - 1])!
+            let operand = operationsToReduce[indexOperand]
+            let right = Float(operationsToReduce[indexOperand + 1])!
             
             let result: Float
             switch operand {
@@ -67,12 +66,16 @@ class CalculatesManager {
             default: fatalError("Unknown operator !")
             }
             
-            operationsToReduce = Array(operationsToReduce.dropFirst(3))
-            operationsToReduce.insert("\(result)", at: 0)
+            // Si 1+2*4, il faut supprimer du tableau 2,* et 4
+            operationsToReduce.remove(at: indexOperand + 1)
+            operationsToReduce.remove(at: indexOperand)
+            operationsToReduce.remove(at: indexOperand - 1)
+
+            // On a dans le tableau "1+", il faut ajouter le resultat "1+8"
+            operationsToReduce.insert("\(result)", at: indexOperand - 1)
+            
+            // et on peut refaire un tour pour faire l'addition
         }
         return operationsToReduce
     }
-    
-    
-    
 }
