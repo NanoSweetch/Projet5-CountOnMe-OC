@@ -14,7 +14,9 @@
 		1FA43BDD224E569A00F565CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FA43BDB224E569A00F565CB /* LaunchScreen.storyboard */; };
 		1FA43BE8224E569A00F565CB /* SimpleCalcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA43BE7224E569A00F565CB /* SimpleCalcTests.swift */; };
 		1FA43BF3224E569A00F565CB /* SimpleCalcUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA43BF2224E569A00F565CB /* SimpleCalcUITests.swift */; };
-		F61B9F5B2449FE2E004FA0B5 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61B9F5A2449FE2E004FA0B5 /* Calculator.swift */; };
+		F6144D132455D08C00674B51 /* DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6144D122455D08C00674B51 /* DisplayView.swift */; };
+		F6144D152455D0BB00674B51 /* NumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6144D142455D0BB00674B51 /* NumberView.swift */; };
+		F6144D172455D0C800674B51 /* OperatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6144D162455D0C800674B51 /* OperatorView.swift */; };
 		F6992AD82444BEED002C687B /* CalculatesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6992AD72444BEED002C687B /* CalculatesManager.swift */; };
 		F69AA22B244F2FCE003C4C9C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69AA22A244F2FCE003C4C9C /* Constants.swift */; };
 /* End PBXBuildFile section */
@@ -50,7 +52,9 @@
 		1FA43BEE224E569A00F565CB /* CountOnMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountOnMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FA43BF2224E569A00F565CB /* SimpleCalcUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCalcUITests.swift; sourceTree = "<group>"; };
 		1FA43BF4224E569A00F565CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F61B9F5A2449FE2E004FA0B5 /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
+		F6144D122455D08C00674B51 /* DisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayView.swift; sourceTree = "<group>"; };
+		F6144D142455D0BB00674B51 /* NumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberView.swift; sourceTree = "<group>"; };
+		F6144D162455D0C800674B51 /* OperatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorView.swift; sourceTree = "<group>"; };
 		F6992AD72444BEED002C687B /* CalculatesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatesManager.swift; sourceTree = "<group>"; };
 		F69AA22A244F2FCE003C4C9C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,7 +140,9 @@
 		F6992AD42444BC97002C687B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F61B9F5A2449FE2E004FA0B5 /* Calculator.swift */,
+				F6144D122455D08C00674B51 /* DisplayView.swift */,
+				F6144D142455D0BB00674B51 /* NumberView.swift */,
+				F6144D162455D0C800674B51 /* OperatorView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -291,9 +297,11 @@
 			files = (
 				F69AA22B244F2FCE003C4C9C /* Constants.swift in Sources */,
 				1FA43BD5224E569900F565CB /* CountOnMeViewController.swift in Sources */,
-				F61B9F5B2449FE2E004FA0B5 /* Calculator.swift in Sources */,
 				F6992AD82444BEED002C687B /* CalculatesManager.swift in Sources */,
+				F6144D132455D08C00674B51 /* DisplayView.swift in Sources */,
 				1FA43BD3224E569900F565CB /* AppDelegate.swift in Sources */,
+				F6144D152455D0BB00674B51 /* NumberView.swift in Sources */,
+				F6144D172455D0C800674B51 /* OperatorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
