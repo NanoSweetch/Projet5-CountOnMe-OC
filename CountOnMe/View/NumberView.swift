@@ -12,6 +12,8 @@ class NumberView: UIView {
 
     let calculateManager = CalculatesManager()
     
+    let display = DisplayView()
+    
     @IBOutlet var numberButtons: [UIButton]!
 
     @IBAction func tappedNumberButton(_ sender: UIButton) {
@@ -20,10 +22,10 @@ class NumberView: UIView {
            }
            
            if calculateManager.expressionHaveResult() {
-               textView.text = ""
+            display.textView.text = ""
            }
            
-           textView.text.append(numberText)
+        display.textView.text.append(numberText)
        }
 }
 

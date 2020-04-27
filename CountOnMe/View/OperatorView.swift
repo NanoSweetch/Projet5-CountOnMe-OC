@@ -14,55 +14,58 @@ class OperatorView: UIView {
     
     let textDisplay = DisplayView()
     
+    let display = DisplayView()
+    
+    let controller = ViewController()
     
     var elements: [String] {
-        return textView.text.split(separator: " ").map { "\($0)" }
+        return display.textView.text.split(separator: " ").map { "\($0)" }
     }
     
     @IBAction func tappedAdditionButton(_ sender: UIButton) {
         if calculateManager.canAddOperator(elements: elements) {
-            textView.text.append(Constants.addition.rawValue)
+            display.textView.text.append(Constants.addition.rawValue)
         } else {
-           alertOperatorUsed()
+            controller.alertOperatorUsed()
         }
     }
     
     @IBAction func tappedSubstractionButton(_ sender: UIButton) {
         if calculateManager.canAddOperator(elements: elements) {
-            textView.text.append(" - ")
+            display.textView.text.append(" - ")
         } else {
-           alertOperatorUsed()
+            controller.alertOperatorUsed()
         }
     }
     
     @IBAction func tappedMultiplicationButton(_ sender: UIButton) {
         if calculateManager.canAddOperator(elements: elements) {
-            textView.text.append(" × ")
+            display.textView.text.append(" × ")
         } else {
-            alertOperatorUsed()
+            controller.alertOperatorUsed()
         }
     }
     
     @IBAction func tappedDivisionButton(_ sender: UIButton) {
         if calculateManager.canAddOperator(elements: elements) {
-            textView.text.append(" ÷ ")
+            display.textView.text.append(" ÷ ")
         } else {
-            alertOperatorUsed()
+            controller.alertOperatorUsed()
         }
     }
     
     
     @IBAction func tappedEqualButton(_ sender: UIButton) {
         guard calculateManager.expressionIsCorrect(elements: elements) else {
-            return createAlert(message: Constants.enterCorrectExpression.rawValue)
+            return controller.createAlert(message: Constants.enterCorrectExpression.rawValue)
         }
         
         guard calculateManager.expressionHaveEnoughElement(elements: elements) else {
-            return createAlert(message: Constants.startNewCalcul.rawValue)
+            return controller.createAlert(message: Constants.startNewCalcul.rawValue)
         }
         
         let operationsToReduce = calculateManager.opertorToReduce(elements: elements)
         
-        textView.text.append(" = \(operationsToReduce.first!)")
+        display.textView.text.append(" = \(operationsToReduce.first!)")
     }
 }
