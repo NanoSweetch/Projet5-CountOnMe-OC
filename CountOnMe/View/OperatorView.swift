@@ -18,10 +18,13 @@ class OperatorView: UIView {
     
     let controller = ViewController()
     
+    // Ajoute un espace entre les élements sur l'affichage ?
     var elements: [String] {
         return display.textView.text.split(separator: " ").map { "\($0)" }
     }
     
+     // MARK: - IBAction tappedAdditionButton
+    /// IBAction tappedAdditionButton allows the addition of the operator +
     @IBAction func tappedAdditionButton(_ sender: UIButton) {
         if calculateManager.canAddOperator(elements: elements) {
             display.textView.text.append(Constants.addition.rawValue)
@@ -30,6 +33,8 @@ class OperatorView: UIView {
         }
     }
     
+     // MARK: - IBAction tappedSubstractionButton
+    /// IBAction tappedSubstractionButton allows the addition of the operator -
     @IBAction func tappedSubstractionButton(_ sender: UIButton) {
         if calculateManager.canAddOperator(elements: elements) {
             display.textView.text.append(" - ")
@@ -38,6 +43,8 @@ class OperatorView: UIView {
         }
     }
     
+     // MARK: - IBAction tappedMultiplicationButton
+    /// IBAction tappedMultiplicationButton allows the addition of the operator X
     @IBAction func tappedMultiplicationButton(_ sender: UIButton) {
         if calculateManager.canAddOperator(elements: elements) {
             display.textView.text.append(" × ")
@@ -46,6 +53,8 @@ class OperatorView: UIView {
         }
     }
     
+     // MARK: - IBAction tappedDivisionButton
+    /// IBAction tappedDivisionButton allows the addition of the operator /
     @IBAction func tappedDivisionButton(_ sender: UIButton) {
         if calculateManager.canAddOperator(elements: elements) {
             display.textView.text.append(" ÷ ")
@@ -54,7 +63,8 @@ class OperatorView: UIView {
         }
     }
     
-    
+     // MARK: - IBAction tappedEqualButton
+    /// IBAction tappedEqualButton allows the addition of the operator = and triggers the calculation
     @IBAction func tappedEqualButton(_ sender: UIButton) {
         guard calculateManager.expressionIsCorrect(elements: elements) else {
             return controller.createAlert(message: Constants.enterCorrectExpression.rawValue)

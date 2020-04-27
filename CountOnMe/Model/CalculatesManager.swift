@@ -12,19 +12,30 @@ class CalculatesManager {
     
     var result: Float?
     
-    // Error check computed variables
+    // MARK: - Verification Functions
+    /// Verification of the expression
+    /// - Parameter elements: Checks in the element array "String"
+    /// - Returns: A boolean: true or false
     func expressionIsCorrect(elements: [String]) -> Bool {
         return elements.last != "+" && elements.last != "-" && elements.last != "×" && elements.last != "÷"
     }
     
+    /// Checks if there are enough elements to make a calculation
+    /// - Parameter elements: Checks in the element array "String"
+    /// - Returns: A boolean: true or false
     func expressionHaveEnoughElement(elements: [String]) -> Bool {
         return elements.count >= 3
     }
     
+    /// Verification for adding a new operator
+    /// - Parameter elements: Checks in the element array "String"
+    /// - Returns: A boolean: true or false
     func canAddOperator(elements: [String]) -> Bool {
         return elements.last != "+" && elements.last != "-" && elements.last != "×" && elements.last != "÷"
     }
     
+    /// Vérifie si le calcule a un résultat     ?????????
+    /// - Returns: A boolean: true or false
     func expressionHaveResult() -> Bool {
         if result != nil {
             return true
@@ -32,6 +43,7 @@ class CalculatesManager {
         return false
     }
      
+    // MARK: - Calculation algorithm
     func opertorToReduce(elements: [String]) -> [String] {
         // Create local copy of operations
         var operationsToReduce = elements

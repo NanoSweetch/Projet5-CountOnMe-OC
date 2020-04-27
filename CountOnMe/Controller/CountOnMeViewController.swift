@@ -8,19 +8,22 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController { // Renomer la class ???????
 
-    // View Life cycles
+   // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
-
+    // MARK: - Alerts functions
+    /// Launches the creation of an alert
     func alertOperatorUsed() {
         createAlert(message: Constants.oneOperatorIsAlreadyInUse.rawValue)
     }
     
+    /// Création d'une alerte
+    /// - Parameter message: Retrieve the message parameter thanks to the enumeration Constants
     func createAlert(message: String) {
         let alertVC = UIAlertController(title: "Attention:", message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))

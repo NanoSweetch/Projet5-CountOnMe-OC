@@ -8,6 +8,8 @@
 
 import Foundation
 
+ // MARK: - Constants Enumeration
+/// Enumeration used in the alert VC
 enum Constants: String {
     
     case warning = "Attention:"
