@@ -51,19 +51,19 @@ class CalculatesManager {
         // Iterate over operations while an operand still here
         while operationsToReduce.count > 1 {
             
-            // Par defaut, on prend le premier operateur
+            // By default, we take the first operator
             var indexOperand = 1
             
-            // Sauf s'il y a une multi
+            // Unless there's a multiplication
             if let multiOperand = operationsToReduce.firstIndex(of: "×") {
                 indexOperand = multiOperand
             }
-            // Div prioritaire sur multi ex: 1/2*4
+            // Priority division on multiplication ex: 1/2*4
             if let divOperand = operationsToReduce.firstIndex(of: "÷") {
                 indexOperand = divOperand
             }
             
-            // Si 1+2*4 indexOperand = 3
+            // if 1+2*4 indexOperand = 3
             let left = Float(operationsToReduce[indexOperand - 1])!
             let operand = operationsToReduce[indexOperand]
             let right = Float(operationsToReduce[indexOperand + 1])!
@@ -78,15 +78,15 @@ class CalculatesManager {
             default: fatalError("Unknown operator !")
             }
             
-            // Si 1+2*4, il faut supprimer du tableau 2,* et 4
+            // If 1+2*4, the following must be deleted from array 2* and 4
             operationsToReduce.remove(at: indexOperand + 1)
             operationsToReduce.remove(at: indexOperand)
             operationsToReduce.remove(at: indexOperand - 1)
 
-            // On a dans le tableau "1+", il faut ajouter le resultat "1+8"
+            // We have in the table "1+", we have to add the result "1+8"...
             operationsToReduce.insert("\(result)", at: indexOperand - 1)
             
-            // et on peut refaire un tour pour faire l'addition
+            // and we can go around the block again and do the check.
         }
         return operationsToReduce
     }

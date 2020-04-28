@@ -14,11 +14,11 @@ class NumberView: UIView {
     
     let display = DisplayView()
     
-     // MARK: - IBOutlets numberButtons
+     // MARK: - IBOutlet
     /// IBOutlet numberButtons make a button collection. Used to perform calculations
     @IBOutlet var numberButtons: [UIButton]!
 
-     // MARK: - IBAction tappedNumberButton
+     // MARK: - IBAction
     /// IBAction tappedNumberButton sends the information when it is pressed
     @IBAction func tappedNumberButton(_ sender: UIButton) {
            guard let numberText = sender.title(for: .normal) else {
@@ -35,7 +35,6 @@ class NumberView: UIView {
 
 extension DisplayView {
     
-     // MARK: - IBAction tappedResetButton
     /// IBAction tappedResetButton resets the display to zero
     @IBAction func tappedResetButton(_ sender: UIButton) {
            textView.text = nil
