@@ -9,10 +9,18 @@
 import UIKit
 
 class CountOnMeViewController: UIViewController {
-
+    
+    @IBOutlet weak var displayView: DisplayView!
+    @IBOutlet weak var numberView: NumberView!
+    @IBOutlet weak var operatorView: OperatorView!
+    weak var calculatesManager: CalculatesManager!
+    
    // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        numberView.delegate = self
+        
     }
 
     // MARK: - Alerts functions
@@ -29,4 +37,75 @@ class CountOnMeViewController: UIViewController {
         return self.present(alertVC, animated: true, completion: nil)
 
     }
+}
+
+// MARK: - Extension controller
+extension CountOnMeViewController: NumberViewDelegate {
+    
+    func resetButtonDidPressed(reset: UIButton) {
+        displayView.textView.text = nil
+    }
+    
+    func numberButtonDidPressed(number: UIButton) {
+        guard let numberText = number.title(for: .normal) else {
+               return
+           }
+           // Vérifier si ca ajoute pas simplement un espace entre les élements du calcul
+           if calculateManager.expressionHaveResult() {
+            displayView.textView.text = ""
+           }
+           
+        displayView.textView.text.append(numberText)
+    }
+    
+}
+
+extension CountOnMeViewController: OperatorViewDelegate {
+    func equalButtonDidPressed(equal: UIButton) {
+        guard calculateManager.expressionIsCorrect(elements: elements) else {
+            return self.createAlert(message: Constants.enterCorrectExpression.rawValue)
+        }
+        
+        guard calculateManager.expressionHaveEnoughElement(elements: elements) else {
+            return self.createAlert(message: Constants.startNewCalcul.rawValue)
+        }
+        
+        let operationsToReduce = calculateManager.opertorToReduce(elements: elements)
+        
+        displayView.textView.text.append(" = \(operationsToReduce.first!)")
+    }
+    
+    func divisionButtonDidPressed(division: UIButton) {
+        if calculateManager.canAddOperator(elements: elements) {
+            displayView.textView.text.append(" ÷ ")
+        } else {
+            self.alertOperatorUsed()
+        }
+    }
+    
+    func multiplicationButtonDidPressed(multiplication: UIButton) {
+        if calculateManager.canAddOperator(elements: elements) {
+            displayView.textView.text.append(" × ")
+        } else {
+            self.alertOperatorUsed()
+        }
+    }
+    
+    func substractionButtonDidPressed(substraction: UIButton) {
+        if calculateManager.canAddOperator(elements: elements) {
+            displayView.textView.text.append(" - ")
+        } else {
+            self.alertOperatorUsed()
+        }
+    }
+    
+    func additionButtonDidPressed(addition: UIButton) {
+        if calculateManager.canAddOperator(elements: elements) {
+            displayView.textView.text.append(Constants.addition.rawValue)
+        } else {
+            self.alertOperatorUsed()
+        }
+    }
+    
+    
 }

@@ -8,12 +8,16 @@
 
 import UIKit
 
-class NumberView: UIView {
+// MARK: - Protocol Delegate
+protocol NumberViewDelegate: class {
+    func numberButtonDidPressed(number: UIButton)
+    
+    func resetButtonDidPressed(reset: UIButton)
+}
 
-    let calculateManager = CalculatesManager()
+class NumberView: UIView {
     
-    let display = DisplayView()
-    
+    weak var delegate: NumberViewDelegate?
      // MARK: - IBOutlet
     /// IBOutlet numberButtons make a button collection. Used to perform calculations
     @IBOutlet var numberButtons: [UIButton]!
@@ -21,22 +25,11 @@ class NumberView: UIView {
      // MARK: - IBAction
     /// IBAction tappedNumberButton sends the information when it is pressed
     @IBAction func tappedNumberButton(_ sender: UIButton) {
-           guard let numberText = sender.title(for: .normal) else {
-               return
-           }
-           // Vérifier si ca ajoute pas simplement un espace entre les élements du calcul
-           if calculateManager.expressionHaveResult() {
-            display.textView.text = ""
-           }
-           
-        display.textView.text.append(numberText)
+        delegate?.numberButtonDidPressed(number: sender)
        }
-}
-
-extension DisplayView {
     
     /// IBAction tappedResetButton resets the display to zero
     @IBAction func tappedResetButton(_ sender: UIButton) {
-           textView.text = nil
+        delegate?.resetButtonDidPressed(reset: sender)
        }
 }

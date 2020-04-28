@@ -7,8 +7,12 @@
 //
 
 import Foundation
+protocol CalculatesManagerDelegate: class {
+    
+}
 
 class CalculatesManager {
+    weak var delegate: CalculatesManagerDelegate?
     
     var result: Float?
     

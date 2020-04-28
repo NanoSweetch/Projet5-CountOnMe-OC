@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Count On Me View Controller-->
         <scene sceneID="BSq-PH-znu">
             <objects>
-                <viewController id="eqK-jh-KKu" customClass="ViewController" customModule="CountOnMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="eqK-jh-KKu" customClass="CountOnMeViewController" customModule="CountOnMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tQO-Y2-VWE"/>
                         <viewControllerLayoutGuide type="bottom" id="Fhl-dE-gDl"/>
@@ -179,7 +179,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="tappedResetButton:" destination="txT-NL-qGD" eventType="touchUpInside" id="iYQ-Oh-Ifv"/>
+                                                            <action selector="tappedResetButton:" destination="sTY-lA-Fwu" eventType="touchUpInside" id="9QW-b3-vZx"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -301,6 +301,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AWJ-Vl-uau"/>
                     </view>
+                    <connections>
+                        <outlet property="displayView" destination="txT-NL-qGD" id="pSv-K1-R2n"/>
+                        <outlet property="numberView" destination="sTY-lA-Fwu" id="TEh-aa-uXF"/>
+                        <outlet property="operatorView" destination="yho-uv-IZe" id="BI7-br-AAu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7XP-3c-sJZ" sceneMemberID="firstResponder"/>
             </objects>
