@@ -20,6 +20,7 @@ class CountOnMeViewController: UIViewController {
         super.viewDidLoad()
         
         numberView.delegate = self
+        operatorView.delegate = self
         
     }
 
