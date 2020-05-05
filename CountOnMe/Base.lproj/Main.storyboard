@@ -193,18 +193,6 @@
                                     <constraint firstAttribute="bottom" secondItem="isI-Gg-Iye" secondAttribute="bottom" id="anD-Hs-lVz"/>
                                     <constraint firstAttribute="trailing" secondItem="isI-Gg-Iye" secondAttribute="trailing" id="mNs-1L-gLe"/>
                                 </constraints>
-                                <connections>
-                                    <outletCollection property="numberButtons" destination="Raa-av-x4n" collectionClass="NSMutableArray" id="J7Y-Ck-FtK"/>
-                                    <outletCollection property="numberButtons" destination="jd7-ld-hSU" collectionClass="NSMutableArray" id="hHW-6e-8RQ"/>
-                                    <outletCollection property="numberButtons" destination="UDN-zf-T0y" collectionClass="NSMutableArray" id="kPu-2s-TUS"/>
-                                    <outletCollection property="numberButtons" destination="tMJ-tH-k5u" collectionClass="NSMutableArray" id="l5q-14-7FG"/>
-                                    <outletCollection property="numberButtons" destination="lad-SR-mqj" collectionClass="NSMutableArray" id="Cty-4Z-eee"/>
-                                    <outletCollection property="numberButtons" destination="S66-ub-JAX" collectionClass="NSMutableArray" id="iF5-fx-wzN"/>
-                                    <outletCollection property="numberButtons" destination="W04-n1-Wen" collectionClass="NSMutableArray" id="BPW-uf-R62"/>
-                                    <outletCollection property="numberButtons" destination="EPx-3X-zTa" collectionClass="NSMutableArray" id="arW-KQ-T0M"/>
-                                    <outletCollection property="numberButtons" destination="Hkr-13-i1X" collectionClass="NSMutableArray" id="ASR-eI-u23"/>
-                                    <outletCollection property="numberButtons" destination="YD6-ul-r3f" collectionClass="NSMutableArray" id="eoa-qO-S6t"/>
-                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yho-uv-IZe" userLabel="Operator View" customClass="OperatorView" customModule="CountOnMe" customModuleProvider="target">
                                 <rect key="frame" x="20" y="697.66666666666663" width="374" height="158.33333333333337"/>

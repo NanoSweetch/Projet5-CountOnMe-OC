@@ -26,13 +26,6 @@ class OperatorView: UIView {
 
     weak var delegate: OperatorViewDelegate?
     
-    let calculateManager = CalculatesManager()
-    
-    // Adds a space between elements on the display
-    var elements: [String] {
-        return display.textView.text.split(separator: " ").map { "\($0)" }
-    }
-    
      // MARK: - IBAction
     /// IBAction tappedAdditionButton allows the addition of the operator +
     @IBAction func tappedAdditionButton(_ sender: UIButton) {
