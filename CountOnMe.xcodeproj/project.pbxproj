@@ -110,6 +110,7 @@
 				F6992AD52444BC9A002C687B /* Model */,
 				F6992AD42444BC97002C687B /* View */,
 				F6992AD62444BCAE002C687B /* Controller */,
+				F69AA22A244F2FCE003C4C9C /* Constants.swift */,
 				1FA43BD2224E569900F565CB /* AppDelegate.swift */,
 				1FA43BD6224E569900F565CB /* Main.storyboard */,
 				1FA43BDB224E569A00F565CB /* LaunchScreen.storyboard */,
@@ -151,7 +152,6 @@
 			isa = PBXGroup;
 			children = (
 				F6992AD72444BEED002C687B /* CalculatesManager.swift */,
-				F69AA22A244F2FCE003C4C9C /* Constants.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

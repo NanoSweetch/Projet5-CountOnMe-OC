@@ -9,8 +9,8 @@
 import UIKit
 
 class DisplayView: UIView {
-
-   @IBOutlet weak var textView: UITextView!
     
-
+     // MARK: - UITextView
+    /// IBOutlet textView displays the result of the calculation
+   @IBOutlet weak var textView: UITextView!
 }

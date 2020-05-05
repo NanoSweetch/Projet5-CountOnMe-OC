@@ -8,28 +8,25 @@
 
 import UIKit
 
-class NumberView: UIView {
-
-    let calculateManager = CalculatesManager()
+// MARK: - Protocol Delegate
+protocol NumberViewDelegate: class {
+    func numberButtonDidPressed(number: UIButton)
     
-    @IBOutlet var numberButtons: [UIButton]!
-
-    @IBAction func tappedNumberButton(_ sender: UIButton) {
-           guard let numberText = sender.title(for: .normal) else {
-               return
-           }
-           
-           if calculateManager.expressionHaveResult() {
-               textView.text = ""
-           }
-           
-           textView.text.append(numberText)
-       }
+    func resetButtonDidPressed(reset: UIButton)
 }
 
-extension DisplayView {
+class NumberView: UIView {
     
+    weak var delegate: NumberViewDelegate?
+
+     // MARK: - IBAction
+    /// IBAction tappedNumberButton sends the information when it is pressed
+    @IBAction func tappedNumberButton(_ sender: UIButton) {
+        delegate?.numberButtonDidPressed(number: sender)
+       }
+    
+    /// IBAction tappedResetButton resets the display to zero
     @IBAction func tappedResetButton(_ sender: UIButton) {
-           textView.text = nil
+        delegate?.resetButtonDidPressed(reset: sender)
        }
 }

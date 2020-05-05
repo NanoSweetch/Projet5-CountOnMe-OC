@@ -8,61 +8,47 @@
 
 import UIKit
 
+// MARK: - Protocol Delegate
+protocol OperatorViewDelegate: class {
+    func additionButtonDidPressed(addition: UIButton)
+    
+    func substractionButtonDidPressed(substraction: UIButton)
+    
+    func multiplicationButtonDidPressed(multiplication: UIButton)
+    
+    func divisionButtonDidPressed(division: UIButton)
+    
+    func equalButtonDidPressed(equal: UIButton)
+    
+}
+
 class OperatorView: UIView {
 
-    let calculateManager = CalculatesManager()
+    weak var delegate: OperatorViewDelegate?
     
-    let textDisplay = DisplayView()
-    
-    
-    var elements: [String] {
-        return textView.text.split(separator: " ").map { "\($0)" }
-    }
-    
+     // MARK: - IBAction
+    /// IBAction tappedAdditionButton allows the addition of the operator +
     @IBAction func tappedAdditionButton(_ sender: UIButton) {
-        if calculateManager.canAddOperator(elements: elements) {
-            textView.text.append(Constants.addition.rawValue)
-        } else {
-           alertOperatorUsed()
-        }
+        delegate?.additionButtonDidPressed(addition: sender)
     }
     
+    /// IBAction tappedSubstractionButton allows the addition of the operator -
     @IBAction func tappedSubstractionButton(_ sender: UIButton) {
-        if calculateManager.canAddOperator(elements: elements) {
-            textView.text.append(" - ")
-        } else {
-           alertOperatorUsed()
-        }
+        delegate?.substractionButtonDidPressed(substraction: sender)
     }
     
+    /// IBAction tappedMultiplicationButton allows the addition of the operator X
     @IBAction func tappedMultiplicationButton(_ sender: UIButton) {
-        if calculateManager.canAddOperator(elements: elements) {
-            textView.text.append(" × ")
-        } else {
-            alertOperatorUsed()
-        }
+        delegate?.multiplicationButtonDidPressed(multiplication: sender)
     }
     
+    /// IBAction tappedDivisionButton allows the addition of the operator /
     @IBAction func tappedDivisionButton(_ sender: UIButton) {
-        if calculateManager.canAddOperator(elements: elements) {
-            textView.text.append(" ÷ ")
-        } else {
-            alertOperatorUsed()
-        }
+        delegate?.divisionButtonDidPressed(division: sender)
     }
     
-    
+    /// IBAction tappedEqualButton allows the addition of the operator = and triggers the calculation
     @IBAction func tappedEqualButton(_ sender: UIButton) {
-        guard calculateManager.expressionIsCorrect(elements: elements) else {
-            return createAlert(message: Constants.enterCorrectExpression.rawValue)
-        }
-        
-        guard calculateManager.expressionHaveEnoughElement(elements: elements) else {
-            return createAlert(message: Constants.startNewCalcul.rawValue)
-        }
-        
-        let operationsToReduce = calculateManager.opertorToReduce(elements: elements)
-        
-        textView.text.append(" = \(operationsToReduce.first!)")
+        delegate?.equalButtonDidPressed(equal: sender)
     }
 }
