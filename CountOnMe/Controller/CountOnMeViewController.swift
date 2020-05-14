@@ -56,7 +56,6 @@ extension CountOnMeViewController: NumberViewDelegate {
         guard let numberText = number.title(for: .normal) else {
                return
            }
-           // Vérifier si ca ajoute pas simplement un espace entre les élements du calcul
            if calculatesManager.expressionHaveResult() {
             displayView.textView.text = ""
            }
