@@ -49,17 +49,13 @@ class CountOnMeViewController: UIViewController {
 extension CountOnMeViewController: NumberViewDelegate {
     
     func resetButtonDidPressed(reset: UIButton) {
-        displayView.textView.text = nil
-    }
+            displayView.textView.text = nil
+        }
     
     func numberButtonDidPressed(number: UIButton) {
         guard let numberText = number.title(for: .normal) else {
                return
            }
-           if calculatesManager.expressionHaveResult() {
-            displayView.textView.text = ""
-           }
-           
         displayView.textView.text.append(numberText)
     }
     
@@ -75,9 +71,9 @@ extension CountOnMeViewController: OperatorViewDelegate {
             return self.createAlert(message: Constants.startNewCalcul.rawValue)
         }
         
-        let operationsToReduce = calculatesManager.opertorToReduce(elements: elements)
-        
-        displayView.textView.text.append(" = \(operationsToReduce.first!.replacingOccurrences(of: ".0", with: ""))")
+        if let operationsToReduce = calculatesManager.opertorToReduce(elements: elements), let result = operationsToReduce.first {
+            displayView.textView.text = result.replacingOccurrences(of: ".0", with: "")
+        }
     }
     
     func divisionButtonDidPressed(division: UIButton) {

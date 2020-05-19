@@ -10,8 +10,6 @@ import Foundation
 
 class CalculatesManager {
     
-    var result: Float?
-    
     // MARK: - Verification Functions
     /// Verification of the expression
     /// - Parameter elements: Checks in the element array "String"
@@ -31,20 +29,11 @@ class CalculatesManager {
     /// - Parameter elements: Checks in the element array "String"
     /// - Returns: A boolean: true or false
     func canAddOperator(elements: [String]) -> Bool {
-        return elements.last != "+" && elements.last != "-" && elements.last != "×" && elements.last != "÷"
-    }
-    
-    /// Vérifie si le calcule a un résultat     ?????????
-    /// - Returns: A boolean: true or false
-    func expressionHaveResult() -> Bool {
-        if result != nil {
-            return true
-        }
-        return false
+        return elements.last != "+" && elements.last != "-" && elements.last != "×" && elements.last != "÷" && elements.count != 0
     }
      
     // MARK: - Calculation algorithm
-    func opertorToReduce(elements: [String]) -> [String] {
+    func opertorToReduce(elements: [String]) -> [String]? {
         // Create local copy of operations
         var operationsToReduce = elements
         
@@ -64,9 +53,9 @@ class CalculatesManager {
             }
             
             // if 1+2*4 indexOperand = 3
-            let left = Float(operationsToReduce[indexOperand - 1])!
+            guard let left = Float(operationsToReduce[indexOperand - 1]) else { return nil}
             let operand = operationsToReduce[indexOperand]
-            let right = Float(operationsToReduce[indexOperand + 1])!
+            guard let right = Float(operationsToReduce[indexOperand + 1]) else { return nil }
             
             let result: Float
             switch operand {
@@ -74,7 +63,6 @@ class CalculatesManager {
             case "-": result = left - right
             case "×": result = left * right
             case "÷": result = left / right
-            case "=": result = left + right
             default: fatalError("Unknown operator !")
             }
             

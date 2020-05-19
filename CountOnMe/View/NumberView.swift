@@ -18,7 +18,7 @@ protocol NumberViewDelegate: class {
 class NumberView: UIView {
     
     weak var delegate: NumberViewDelegate?
-
+    
      // MARK: - IBAction
     /// IBAction tappedNumberButton sends the information when it is pressed
     @IBAction func tappedNumberButton(_ sender: UIButton) {

@@ -184,32 +184,6 @@ class CalculatesManagerTests: XCTestCase {
         XCTAssertFalse(isCorrect)
     }
     
-    // MARK: - Test func expressionHaveResult
-    // Verifies that the calculation has a result
-    func testGivenResultEqualThree_WhenCheckexpressionHaveResult_ThenExpressionIsCorrect() {
-        // Given
-        let calculation = CalculatesManager()
-        calculation.result = 3
-        
-        // When
-        let isCorrect = calculation.expressionHaveResult()
-        
-        // Then
-        XCTAssertTrue(isCorrect)
-    }
-    
-    func testGivenResultEqualNil_WhenCheckexpressionHaveResult_ThenExpressionIsWrong() {
-        // Given
-        let calculation = CalculatesManager()
-        calculation.result = nil
-        
-        // When
-        let isCorrect = calculation.expressionHaveResult()
-        
-        // Then
-        XCTAssertFalse(isCorrect)
-    }
-    
     // MARK: - Test func opertorToReduce
     // Verifies calculations and expected results
     func testGivenCalculAddition_WhenCheckCalculWork_ThenExpressionIsCorrect() {
@@ -342,6 +316,28 @@ class CalculatesManagerTests: XCTestCase {
         let isCorrect = calculation.opertorToReduce(elements: elements)
         // Then
         XCTAssertFalse(isCorrect == ["3.0"])
+    }
+    
+    func testGivenCalculDivisionZero_WhenCheckCalculWork_ThenExpressionIsWrong() {
+        // Given
+        let calculation = CalculatesManager()
+        let elements = ["0", "÷", "3"]
+        
+        // When
+        let isCorrect = calculation.opertorToReduce(elements: elements)
+        // Then
+        XCTAssertFalse(isCorrect == ["3.0"])
+    }
+    
+    func testGivenCalculDivisionZero_WhenCheckCalculWork_ThenExpressionIsCorrect() {
+        // Given
+        let calculation = CalculatesManager()
+        let elements = ["0", "÷", "7"]
+        
+        // When
+        let isCorrect = calculation.opertorToReduce(elements: elements)
+        // Then
+        XCTAssertTrue(isCorrect == ["0.0"])
     }
 }
 
